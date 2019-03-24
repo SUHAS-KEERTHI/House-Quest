@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @house.location %>
+</p>
+
+<p>
+  <strong>Squareft:</strong>
+  <%= @house.squareft %>
+</p>
+
+<p>
+  <strong>Yearbuilt:</strong>
+  <%= @house.yearbuilt %>
+</p>
+
+<p>
+  <strong>Style:</strong>
+  <%= @house.style %>
+</p>
+
+<p>
+  <strong>Listprice:</strong>
+  <%= @house.listprice %>
+</p>
+
+<p>
+  <strong>Floors:</strong>
+  <%= @house.floors %>
+</p>
+
+<p>
+  <strong>Basement:</strong>
+  <%= @house.basement %>
+</p>
+
+<p>
+  <strong>Currentowner:</strong>
+  <%= @house.currentowner %>
+</p>
+
+<p>
+  <strong>Realtorcontact:</strong>
+  <%= @house.realtorcontact %>
+</p>
+
+<p>
+  <strong>Potentialbuyers:</strong>
+  <%= @house.potentialbuyers %>
+</p>
+
+<p>
+  <strong>Company ID:</strong>
+  <%= @house.companies_id %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @house.image.url(:medium) %>
+</p>
+
+<%= link_to 'Back to Houses', houses_path %>

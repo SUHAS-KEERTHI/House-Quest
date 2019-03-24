@@ -1,0 +1,48 @@
+<h2>Register new user</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, autofocus: true, autocomplete: "name" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :'Preferred contact method' %><br />
+    <%= f.select :contact_type, ['Phone', 'Text', 'Email']%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :'User role' %><br />
+    <%= f.select :role_type, ['Realtor', 'Househunter']%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+  
+  <%= f.label :company_id %> <i>(Neglect if Househunter)</i><br/>
+  <%= select("user", "company_id", Company.all.collect{ |c| [ c.name, c.id] }) %>
+  
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+  
+<% end %>
+
+<%= render "devise/shared/links" %>

@@ -1,0 +1,51 @@
+<h2>Register new user</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  
+<!--
+  <div class="field" id="companyid" >
+    <%= f.label :company_id %><br/>
+    <%= f.select :company_id, Company.all.collect{ |c| [ c.name, c.id] }  %>
+  </div>
+-->
+  
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>
+
+<!-- <script type="text/javascript">
+    var checkbox2 = document.getElementById('userrole');
+    var details_div2 = document.getElementById('companyid');
+    checkbox2.onchange = function() {
+        if(checkbox2 == "Realtor") {
+            details_div2.style['display'] = 'block';
+        } else {
+            details_div2.style['display'] = 'block';
+            // details_div2.style['display'] = 'none';
+        }
+    };
+</script>
+
+-->

@@ -1,0 +1,73 @@
+<% if !(current_user.provider == "facebook") %>
+<%= link_to 'Change role/Edit profile', edit_user_registration_url %>
+<% end %>
+
+<br/>
+
+<% if current_user.admin? %>
+  <h1>Users section</h1>
+  <table>
+    <tr>
+      <th>User name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <% if !user.admin? %>
+          <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+  <td><%= link_to 'Create new user', new_user_url %></td>
+<% end %>
+<br/>
+<br/>
+
+<h1>Real estate companies section</h1>
+<%= link_to 'View all real estate companies', companies_url %>
+
+<br/>
+
+<% if current_user.role_type == "realtor" || current_user.role_type == "Realtor"  || current_user.admin? %>
+  <% Company.all.each do |company| %>
+    <tr>
+      <% if company.id == current_user.company_id %>
+        <%= link_to 'View your real estate company details', (company) %>
+      <% end %>
+    </tr>
+  <% end %>
+  <br/>
+<% end %>
+
+<br/>
+
+<h1>Houses section</h1>
+
+<% if current_user.role_type == "realtor" || current_user.role_type == "Realtor"  || current_user.admin? %>
+  <%= link_to 'View and list houses', houses_url %>
+<% else %>
+  <%= link_to 'View listed houses',houses_url %>
+<% end %>
+
+<br/>
+<br/>
+
+<h1>Inquiries</h1>
+<% if current_user.role_type == "Househunter" %>
+  <%= link_to 'View and Make an inquiry', inquiries_url %>
+<% else %>
+  <%= link_to 'View all enquiries', inquiries_url %>
+<% end %>
+
+
+<br/>
+
+
+

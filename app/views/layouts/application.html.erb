@@ -1,0 +1,41 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>HousingApp</title>
+      <%= csrf_meta_tags %>
+  
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    
+    <body>
+    
+      <% if user_signed_in? %>
+        User signed in: <%= current_user.name %>, <%= current_user.email %>
+        <br />
+        <% if current_user.admin? %>
+          Role: <%= 'Admin' %>
+        <% else %>
+          Role: <%= current_user.role_type %>
+        <% end %>
+        <li>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+        </li>
+      <% else %>
+        <li>
+        <%= link_to('Login', new_user_session_path)  %>  
+        </li>
+      <% end %>
+    
+        <section>
+    
+          <div id="flash">
+            <% flash.each do |key, value| %>
+              <div class="flash <%= key %>"><%= value %></div>
+            <% end %>
+          </div>
+    
+          <%= yield %>
+        </section>
+    </body>
+  </html>

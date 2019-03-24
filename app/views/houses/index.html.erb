@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Houses</h1>
+<%= link_to "Custom Search", new_search_path%>
+
+<br>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th> Location </th>
+      <th> Squareft </th>
+      <th> Yearbuilt </th>
+      <th> Style </th>
+      <th> Listprice </th>
+      <th> Floors </th>
+      <th> Basement </th>
+      <th> Currentowner </th>
+      <th> Realtorcontact </th>
+      <th> Potentialbuyers </th>
+      <th> Company </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @houses.each do |house| %>
+      <tr>
+        <td><%= house.location %></td>
+        <td><%= house.squareft %></td>
+        <td><%= house.yearbuilt %></td>
+        <td><%= house.style %></td>
+        <td><%= house.listprice %></td>
+        <td><%= house.floors %></td>
+        <td><%= house.basement %></td>
+        <td><%= house.currentowner %></td>
+        <td><%= house.realtorcontact %></td>
+        <td><%= house.potentialbuyers %></td>
+        <td><%= house.companies_id %></td>
+        <td><%= link_to 'Show', house %></td>
+        <% if (current_user.role_type=="Realtor" && current_user.company_id == house.companies_id) || current_user.admin? %>
+          <td><%= link_to 'Edit', edit_house_path(house) %></td>
+          <td><%= link_to 'Delete', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if current_user.role_type == "realtor" || current_user.role_type=="Realtor" || current_user.admin? %>
+  <%= link_to 'New House', new_house_path %> |
+<% end %>
+<br/>
+<td><%= link_to 'Back to User page', users_url %></td>

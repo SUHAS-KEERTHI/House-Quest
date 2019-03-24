@@ -1,0 +1,75 @@
+<h1>Search Result</h1>
+<p><%= link_to 'Back to Advanced Search', new_search_path %></p>
+
+<% if @search.search_houses.empty? %>
+    <p>No Records Found</p>
+<% else %>
+    <%= @search.search_houses.each_with_index do |s,index| %>
+        <p>
+          <strong>Location:</strong>
+          <%= s.location %>
+        </p>
+        
+        <p>
+          <strong>Squareft:</strong>
+          <%= s.squareft %>
+        </p>
+        
+        <p>
+          <strong>Yearbuilt:</strong>
+          <%= s.yearbuilt %>
+        </p>
+        
+        <p>
+          <strong>Style:</strong>
+          <%= s.style %>
+        </p>
+        
+        <p>
+          <strong>Listprice:</strong>
+          <%= s.listprice %>
+        </p>
+        
+        <p>
+          <strong>Floors:</strong>
+          <%= s.floors %>
+        </p>
+        
+        <p>
+          <strong>Basement:</strong>
+          <%= s.basement %>
+        </p>
+        
+        <p>
+          <strong>Currentowner:</strong>
+          <%= s.currentowner %>
+        </p>
+        
+        <p>
+          <strong>Realtorcontact:</strong>
+          <%= s.realtorcontact %>
+        </p>
+        
+        <p>
+          <strong>Potentialbuyers:</strong>
+          <%= s.potentialbuyers %>
+        </p>
+        
+        <p>
+          <strong>Company ID:</strong>
+          <%= s.companies_id %>
+        </p>
+        
+        <p>
+          <strong>Image:</strong>
+          <%= image_tag s.image.url(:medium) %>
+        </p>
+        
+        <p>---------------------------------------------------------------------</p>
+        
+        <% if index == (@search.search_houses.size - 1) %>
+          
+        <% end %>
+        
+    <% end %>
+<% end %>
