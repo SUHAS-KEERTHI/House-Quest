@@ -1,21 +1,7 @@
-# README
-Please read the entire README file before testing the deployed Heroku app.
-
-CSC/ECE 517 - Object Oriented Design and Development
-Project 2 - Ruby on Rails
-
-Team members:
-
-Arvind Mohan (amohan6)
-Suhas Keerthiraju (skeerth)
-Ishan Rohatgi (irohatg)
-
-This Ruby on Rails application has been deployed using Heroku. You can find the application at https://mighty-taiga-64861.herokuapp.com.
-
 ADMIN DETAILS:-
 
-Email: skeerth@ncsu.edu
-password: skeerth
+Email: admin@ncsu.edu
+password: admin
 
 
 PRE-CREATED USERS:-
