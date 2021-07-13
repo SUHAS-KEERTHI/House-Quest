@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'addressable', '~> 2.4.0'
+gem 'addressable', '~> 2.8.0'
 gem 'appraisal'
 gem 'ammeter'
 gem 'bundler', '~> 1.3'
