@@ -43,7 +43,7 @@ gem 'pry', require: false
 gem 'devise'
 gem "paperclip", "~> 6.0.0"
 gem "figaro"
-gem "omniauth", "~> 1.6"
+gem "omniauth", "~> 1.9"
 gem "omniauth-facebook", "~> 4.0"
 
 
